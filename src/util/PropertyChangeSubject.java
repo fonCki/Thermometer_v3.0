@@ -1,6 +1,5 @@
 package util;
 
-import mediator.Listener;
 
 import java.beans.PropertyChangeListener;
 
