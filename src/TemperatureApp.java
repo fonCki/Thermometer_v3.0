@@ -11,9 +11,10 @@ public class TemperatureApp extends Application {
   public void start(Stage primaryStage) throws Exception{
 
     //Initializing core///
+
     ModelFactory modelFactory = new ModelFactory();
     ViewModelFactory viewModelFactory = new ViewModelFactory(modelFactory);
-    ViewHandler viewHandler = new ViewHandler(viewModelFactory, primaryStage);
+    ViewHandler viewHandler = new ViewHandler(viewModelFactory);
 
     //Creating Threads///
     Runnable externalTemp = new ExternalTemperature(modelFactory.getTemperatureModel(), 0, -10, 28);

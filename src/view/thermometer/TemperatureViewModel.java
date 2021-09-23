@@ -13,7 +13,7 @@ public class TemperatureViewModel  {
     private DoubleProperty t2;
     private DoubleProperty outside;
 
-    private IntegerProperty radiator;
+
 
     private DoubleProperty temperature;
 
@@ -24,25 +24,10 @@ public class TemperatureViewModel  {
         this.t2 = new SimpleDoubleProperty();
         this.outside = new SimpleDoubleProperty();
         this.temperature = new SimpleDoubleProperty();
-
-        this.radiator = new SimpleIntegerProperty(0);
         this.model = model;
-        model.addListener(evt -> updateValues(evt));
+        model.addListener(evt -> updateTemp(evt));
     }
 
-    private void  updateValues(PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals("radiatorChange")) {
-                updateRadiator(evt);
-            } else {
-                updateTemp(evt);
-            }
-    }
-
-    private void updateRadiator(PropertyChangeEvent evt) {
-        Platform.runLater(() -> {
-            radiator.setValue((int) evt.getNewValue());
-        });
-    }
 
     private void updateTemp(PropertyChangeEvent evt) {
         Platform.runLater(() -> {
@@ -50,18 +35,6 @@ public class TemperatureViewModel  {
             if (evt.getPropertyName().equals("t2")) t2.setValue((double) evt.getNewValue());
             if (evt.getPropertyName().equals("outside")) outside.setValue((double) evt.getNewValue());
         });
-    }
-
-    public IntegerProperty radiatorProperty() {
-        return radiator;
-    }
-
-    public void upRadiator() {
-        model.upRadiator();
-    }
-
-    public void downRadiator() {
-        model.downRadiator();
     }
 
 

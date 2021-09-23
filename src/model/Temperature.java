@@ -15,13 +15,14 @@ public class Temperature
    {
       return value;
    }
-   public String getId() { return id;}
-   public DateTime getTime()
-   {
+   public String getId() {
+      return id;
+   }
+
+   public DateTime getTime() {
       return time;
    }
-   public String toString()
-   {
+   public String toString() {
       return String.format("%s: %.1f (%s)", id, value, time.getTimestamp());
    }
 }

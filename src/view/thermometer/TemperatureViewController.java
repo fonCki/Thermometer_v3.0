@@ -2,50 +2,38 @@ package view.thermometer;
 
 import core.ViewHandler;
 import core.ViewModelFactory;
+import javafx.beans.binding.Binding;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import view.ViewController;
 
-public class TemperatureViewController implements ViewController {
+public class TemperatureViewController {
 
    private ViewHandler viewHandler;
    private TemperatureViewModel temperatureViewModel;
    private StringProperty thermometerId;
 
    @FXML private Label labelOutside;
-   @FXML private Label labelt1;
-   @FXML private Label labelt2;
+   @FXML private Label labelT1;
+   @FXML private Label labelT2;
    @FXML private Label labelRadiator;
 
    public TemperatureViewController() {
    }
 
-   public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory) {
-      this.viewHandler = viewHandler;
-      this.temperatureViewModel = viewModelFactory.getTemperatureViewModel();
+   public void init(ViewModelFactory viewModelFactory) { //Should I import the whole viewmodel factory? I need to cross the infprmation about the radiator power
 
+      this.temperatureViewModel = viewModelFactory.getTemperatureViewModel(); // Is this wright?
 
-      labelRadiator.textProperty().bind(temperatureViewModel.radiatorProperty().asString());
-      labelt1.textProperty().bind(temperatureViewModel.t1Property().asString());
-      labelt2.textProperty().bind(temperatureViewModel.t2Property().asString());
-      labelOutside.textProperty().bind(temperatureViewModel.outsideProperty().asString());
-   }
-
-   public void onUpButton(ActionEvent actionEvent) {
-      temperatureViewModel.upRadiator();
-   }
-
-   public void onDownButton(ActionEvent actionEvent) {
-      temperatureViewModel.downRadiator();
+      labelRadiator.textProperty().bind(viewModelFactory.getRadiatorViewModel().radiatorProperty().asString());
+      labelT1.textProperty().bind(Bindings.format("%.1f",temperatureViewModel.t1Property()));
+      labelT2.textProperty().bind(Bindings.format("%.1f",temperatureViewModel.t2Property()));
+      labelOutside.textProperty().bind(Bindings.format("%.1f",temperatureViewModel.outsideProperty()));
    }
 
 
-   public void reset()
-   {
-      // empty
-   }
 
 }
