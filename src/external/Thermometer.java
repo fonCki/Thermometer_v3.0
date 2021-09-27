@@ -2,7 +2,7 @@ package external;
 
 import mediator.TemperatureModel;
 
-public class Thermometer implements Runnable{
+public class Thermometer extends Temperature{
     private String id;
     private double t;
     private int d;
@@ -20,10 +20,9 @@ public class Thermometer implements Runnable{
     public void run() {
         while (true) {
             t = temperature(t, model.getRadiatorPower(), d, 0, 6);
-            System.out.println("The temperature of " + id + " is: " + t);
             model.addTemperature(id, t);
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000 * (int) Math.floor(Math.random()*(Temperature.MAX_SECONDS - Temperature.MIN_SECONDS + 1)+ Temperature.MIN_SECONDS));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

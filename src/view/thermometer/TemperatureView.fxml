@@ -80,12 +80,7 @@
                         <Image url="@../../Style/PinClipart.com_thermometer-clipart-black-and_821940.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" layoutX="150.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Distance: 7 mts">
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Text>
-                  <Label fx:id="labelOutside" layoutX="191.0" layoutY="114.0" text="6">
+                  <Label fx:id="labelOutside" layoutX="173.0" layoutY="114.0" text="6">
                      <font>
                         <Font name="System Italic" size="60.0" />
                      </font>

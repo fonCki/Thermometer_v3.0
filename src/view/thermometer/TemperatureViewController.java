@@ -24,11 +24,11 @@ public class TemperatureViewController {
    public TemperatureViewController() {
    }
 
-   public void init(ViewModelFactory viewModelFactory) { //Should I import the whole viewmodel factory? I need to cross the infprmation about the radiator power
+   public void init(TemperatureViewModel temperatureViewModel) {
 
-      this.temperatureViewModel = viewModelFactory.getTemperatureViewModel(); // Is this wright?
-
-      labelRadiator.textProperty().bind(viewModelFactory.getRadiatorViewModel().radiatorProperty().asString());
+      this.temperatureViewModel = temperatureViewModel;
+      //labelRadiator.setVisible(false);
+      labelRadiator.textProperty().bind(temperatureViewModel.radiatorProperty().asString());
       labelT1.textProperty().bind(Bindings.format("%.1f",temperatureViewModel.t1Property()));
       labelT2.textProperty().bind(Bindings.format("%.1f",temperatureViewModel.t2Property()));
       labelOutside.textProperty().bind(Bindings.format("%.1f",temperatureViewModel.outsideProperty()));

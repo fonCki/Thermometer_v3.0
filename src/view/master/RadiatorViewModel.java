@@ -1,7 +1,9 @@
 package view.master;
 
 import javafx.application.Platform;
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import mediator.TemperatureModel;
 
@@ -9,6 +11,7 @@ import java.beans.PropertyChangeEvent;
 
 public class RadiatorViewModel {
     private IntegerProperty radiator;
+
 
     TemperatureModel model;
 

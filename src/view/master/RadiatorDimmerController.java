@@ -25,7 +25,6 @@ public class RadiatorDimmerController {
     public void init(RadiatorViewModel radiatorViewModel) {
 
         this.radiatorViewModel = radiatorViewModel;
-        labelRadiator.textProperty().setValue("H");
         labelRadiator.textProperty().bind(radiatorViewModel.radiatorProperty().asString());
 
     }

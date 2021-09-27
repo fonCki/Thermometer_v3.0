@@ -14,6 +14,8 @@ public interface TemperatureModel extends PropertyChangeSubject {
 
   void updateTempOutside(double temp);
 
+  double getOutsideTemp();
+
   //Should I guet 2 mediators?
   void upRadiator();
 

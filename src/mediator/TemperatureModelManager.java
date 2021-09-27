@@ -11,23 +11,25 @@ import java.util.*;
 public class TemperatureModelManager implements TemperatureModel {
    private TemperatureList temperatureList;
    private Radiator radiator;
+   private double tempOutside;
 
    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
    public TemperatureModelManager() {
      temperatureList = new TemperatureList();
      radiator = new Radiator(changeSupport);
+
    }
 
   @Override public void addTemperature(String id, double value)
   {
-    Temperature temperature = new Temperature(id, value);
-    Temperature old = getLastInsertedTemperature();
-    this.temperatureList.addTemperature(temperature);
-    if (old != null && old.getValue() != temperature.getValue()) {
-      System.out.println("-->" + temperature + " (from: " + old + ")");
-      changeSupport.firePropertyChange(temperature.getId(), old.getValue(), temperature.getValue());
-    }
+ //   Temperature temperature = new Temperature(id, value);
+   // Temperature old = getLastInsertedTemperature();
+    this.temperatureList.addTemperature(new Temperature(id, value));
+   // if (old != null && old.getValue() != temperature.getValue()) {
+     // System.out.println("-->" + temperature + temperature.getId() +" (from: " + old + ")");
+      changeSupport.firePropertyChange(id, null, value);
+   //}
   }
 
   @Override public Temperature getLastInsertedTemperature()
@@ -42,7 +44,15 @@ public class TemperatureModelManager implements TemperatureModel {
 
   @Override
   public void updateTempOutside(double temp) {
+    tempOutside = temp;
+    System.out.println("Rollidh" + temp);
     changeSupport.firePropertyChange("outside", null, temp);
+  }
+
+  @Override
+  public double getOutsideTemp() {
+    System.out.println("hay dios//" + tempOutside);
+    return tempOutside;
   }
 
   @Override
