@@ -1,22 +1,18 @@
 package view.master;
 
 import javafx.application.Platform;
-import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import mediator.TemperatureModel;
 
 import java.beans.PropertyChangeEvent;
 
 public class RadiatorViewModel {
-    private IntegerProperty radiator;
-
-
+    private IntegerProperty radiatorPower;
     TemperatureModel model;
 
     public RadiatorViewModel(TemperatureModel model) {
-        this.radiator = new SimpleIntegerProperty(0);
+        this.radiatorPower = new SimpleIntegerProperty(0);
         this.model = model;
         model.addListener(evt -> updateRadiator(evt));
     }
@@ -24,7 +20,7 @@ public class RadiatorViewModel {
     private void updateRadiator(PropertyChangeEvent evt) {
         Platform.runLater(() -> {
             if (evt.getPropertyName().equals("radiatorChange"))
-            radiator.setValue((int) evt.getNewValue());
+                radiatorPower.setValue((int) evt.getNewValue());
         });
     }
 
@@ -37,7 +33,7 @@ public class RadiatorViewModel {
     }
 
     public IntegerProperty radiatorProperty() {
-        return radiator;
+        return radiatorPower;
     }
 
 }

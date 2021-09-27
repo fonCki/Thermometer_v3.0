@@ -7,9 +7,6 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import core.ViewHandler;
 
-import java.lang.management.MonitorInfo;
-import java.security.PrivateKey;
-import java.time.chrono.MinguoChronology;
 import java.util.Random;
 
 public class TemperatureApp extends Application {
@@ -18,13 +15,10 @@ public class TemperatureApp extends Application {
 
   public void start(Stage primaryStage) throws Exception{
 
-
     //Initializing core///
-
     ModelFactory modelFactory = new ModelFactory();
     ViewModelFactory viewModelFactory = new ViewModelFactory(modelFactory);
     ViewHandler viewHandler = new ViewHandler(viewModelFactory);
-
 
     // Running Handler///
     viewHandler.start();
@@ -37,9 +31,6 @@ public class TemperatureApp extends Application {
     Thread externalThread = new Thread(externalTemp);
     externalThread.setDaemon(true);
     externalThread.start();
-    //---------------------------//
-
-
 
     //Thermometers Temperature Thread///
     Temperature thermometer1 = new Thermometer(modelFactory.getTemperatureModel(),
@@ -54,8 +45,5 @@ public class TemperatureApp extends Application {
     t2.setDaemon(true);
     t1.start();
     t2.start();
-    //---------------------------//
-
-
   }
 }

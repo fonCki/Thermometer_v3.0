@@ -1,27 +1,17 @@
 package mediator;
 
-import Radiator.Radiator;
-import model.Temperature;
 import util.PropertyChangeSubject;
 
 public interface TemperatureModel extends PropertyChangeSubject {
 
+  //About Temperature//
   void addTemperature(String id, double temperature);
-
-  Temperature getLastInsertedTemperature();
-
-  Temperature getLastInsertedTemperature(String id);
-
   void updateTempOutside(double temp);
-
   double getOutsideTemp();
 
-  //Should I guet 2 mediators?
+  //About Radiator
   void upRadiator();
-
   void downRadiator();
-
   int getRadiatorPower();
-  /////////
 
 }

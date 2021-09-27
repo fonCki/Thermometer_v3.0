@@ -8,25 +8,19 @@ import mediator.TemperatureModel;
 import java.beans.PropertyChangeEvent;
 
 public class TemperatureViewModel  {
-
     private DoubleProperty t1;
     private DoubleProperty t2;
     private DoubleProperty outside;
-
-    private IntegerProperty radiator;
-
-
-
+    private IntegerProperty radiatorPower;
     private DoubleProperty temperature;
-
-    TemperatureModel model;
+    private TemperatureModel model;
 
     public TemperatureViewModel(TemperatureModel model) {
         this.t1 = new SimpleDoubleProperty();
         this.t2 = new SimpleDoubleProperty();
         this.outside = new SimpleDoubleProperty();
         this.temperature = new SimpleDoubleProperty();
-        this.radiator = new SimpleIntegerProperty();
+        this.radiatorPower = new SimpleIntegerProperty();
         this.model = model;
         model.addListener(evt -> updateTemp(evt));
     }
@@ -37,7 +31,7 @@ public class TemperatureViewModel  {
             if (evt.getPropertyName().equals("t1")) t1.setValue((double) evt.getNewValue());
             if (evt.getPropertyName().equals("t2")) t2.setValue((double) evt.getNewValue());
             if (evt.getPropertyName().equals("outside")) outside.setValue((double) evt.getNewValue());
-            if (evt.getPropertyName().equals("radiatorChange")) radiator.setValue((int) evt.getNewValue());
+            if (evt.getPropertyName().equals("radiatorChange")) radiatorPower.setValue((int) evt.getNewValue());
         });
     }
 
@@ -54,8 +48,8 @@ public class TemperatureViewModel  {
         return outside;
     }
 
-    public IntegerProperty radiatorProperty() {
-        return this.radiator;
+    public IntegerProperty radiatorPowerProperty() {
+        return this.radiatorPower;
     }
 
 }
