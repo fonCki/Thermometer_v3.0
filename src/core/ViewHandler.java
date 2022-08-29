@@ -15,7 +15,7 @@ import view.thermometer.TemperatureViewController;
 import java.io.IOException;
 
 public class ViewHandler {
-  private ViewModelFactory viewModelFactory;
+  private final ViewModelFactory viewModelFactory;
   private RadiatorDimmerController radiatorDimmerController;
   private TemperatureViewController temperatureViewController;
 

@@ -4,7 +4,7 @@ import view.master.RadiatorViewModel;
 import view.thermometer.TemperatureViewModel;
 
 public class ViewModelFactory {
-    private ModelFactory modelFactory;
+    private final ModelFactory modelFactory;
     private TemperatureViewModel temperatureViewModel;
     private RadiatorViewModel radiatorViewModel;
 

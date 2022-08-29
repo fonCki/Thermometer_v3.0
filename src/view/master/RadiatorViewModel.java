@@ -8,7 +8,7 @@ import mediator.TemperatureModel;
 import java.beans.PropertyChangeEvent;
 
 public class RadiatorViewModel {
-    private IntegerProperty radiatorPower;
+    private final IntegerProperty radiatorPower;
     TemperatureModel model;
 
     public RadiatorViewModel(TemperatureModel model) {

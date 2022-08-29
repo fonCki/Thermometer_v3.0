@@ -4,7 +4,7 @@ import java.beans.PropertyChangeSupport;
 
 public class Radiator {
     private RadiatorState currentState;
-    private PropertyChangeSupport changeSupport;
+    private final PropertyChangeSupport changeSupport;
 
     public Radiator(PropertyChangeSupport changeSupport) {
         currentState = new OffState();

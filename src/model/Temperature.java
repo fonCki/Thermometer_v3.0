@@ -1,9 +1,9 @@
 package model;
 public class Temperature
 {
-   private String id;
-   private double value;
-   private DateTime time;
+   private final String id;
+   private final double value;
+   private final DateTime time;
 
    public Temperature(String id, double value)
    {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class TemperatureList
 {
-   private ArrayList<Temperature> list;
+   private final ArrayList<Temperature> list;
 
    public TemperatureList()
    {

@@ -8,12 +8,12 @@ import mediator.TemperatureModel;
 import java.beans.PropertyChangeEvent;
 
 public class TemperatureViewModel  {
-    private DoubleProperty t1;
-    private DoubleProperty t2;
-    private DoubleProperty outside;
-    private IntegerProperty radiatorPower;
-    private DoubleProperty temperature;
-    private TemperatureModel model;
+    private final DoubleProperty t1;
+    private final DoubleProperty t2;
+    private final DoubleProperty outside;
+    private final IntegerProperty radiatorPower;
+    private final DoubleProperty temperature;
+    private final TemperatureModel model;
 
     public TemperatureViewModel(TemperatureModel model) {
         this.t1 = new SimpleDoubleProperty();

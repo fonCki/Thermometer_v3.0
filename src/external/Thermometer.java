@@ -3,10 +3,10 @@ package external;
 import mediator.TemperatureModel;
 
 public class Thermometer extends Temperature{
-    private String id;
+    private final String id;
     private double t;
-    private int d;
-    private TemperatureModel model;
+    private final int d;
+    private final TemperatureModel model;
 
     public Thermometer(TemperatureModel model, String id, double t, int d) {
         this.id = id;

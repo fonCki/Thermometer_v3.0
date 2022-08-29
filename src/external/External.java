@@ -4,8 +4,10 @@ import mediator.TemperatureModel;
 import external.Temperature;
 
 public class External extends Temperature{
-    private double t, min, max;
-    private TemperatureModel model;
+    private double t;
+    private final double min;
+    private final double max;
+    private final TemperatureModel model;
 
 
     public External(TemperatureModel model, double t, double min, double max) {

@@ -8,10 +8,10 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class TemperatureModelManager implements TemperatureModel {
-   private TemperatureList temperatureList;
+   private final TemperatureList temperatureList;
    private double tempOutside;
-   private Radiator radiator;
-   private PropertyChangeSupport changeSupport;
+   private final Radiator radiator;
+   private final PropertyChangeSupport changeSupport;
 
    public TemperatureModelManager() {
      temperatureList = new TemperatureList();
